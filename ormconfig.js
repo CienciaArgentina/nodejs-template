@@ -6,5 +6,5 @@ module.exports = {
   port: process.env.DB_CIENCIAARG_PORT,
   database:process.env.DB_CIENCIAARG_NAME,
   logging: 'all',
-  entities: ['dist/entity/*.js'],
+  entities: ['dist/entities/*.js'],
 };

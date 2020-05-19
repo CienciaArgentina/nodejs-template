@@ -1,5 +1,5 @@
 import * as repository from './repository';
-import { Gender } from '../../entity/Gender';
+import { Gender } from '../../entities/Gender';
 import { getById } from './service';
 import { HTTP404Error } from '../../utils/error/HTTP400Error';
 

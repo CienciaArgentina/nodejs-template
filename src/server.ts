@@ -2,9 +2,9 @@ import http from 'http';
 import express from 'express';
 import 'express-async-errors';
 import { applyMiddleware, applyRoutes, logger } from './utils';
-import middleware from './middleware';
-import errorHandlers from './middleware/errorHandlers';
-import routes from './services';
+import middleware from './middlewares';
+import errorHandlers from './middlewares/errorHandlers';
+import routes from './components';
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 

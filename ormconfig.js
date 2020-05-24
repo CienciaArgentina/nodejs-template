@@ -5,6 +5,6 @@ module.exports = {
   password: process.env.DB_CIENCIAARG_PASSWORD,
   port: process.env.DB_CIENCIAARG_PORT,
   database:process.env.DB_CIENCIAARG_NAME,
-  logging: 'all',
+  logging: process.env.LOGGER_DB_LEVEL || false,
   entities: ['dist/entities/*.js'],
 };

@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
 import { HTTPClientError } from './HTTPClientError';
 import { HTTP401Error, HTTP404Error } from './HTTP400Error';
-import { logger } from '../logger';
+import { logger } from '../';
 import { HttpStatusErrorCode, Environment, ErrorDescription, ErrorCode } from '../../commons/constants';
 
 export const notFoundError = (): void => {

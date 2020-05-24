@@ -2,7 +2,7 @@
 
 ## Comenzando 🚀
 
-API encargada de manejar las solicitudes para Ciencia Argentina.
+Template para microservicios en NodeJs, se toma como ejemplo un API de Gender.
 
 ## Pre-Requisitos 📋
 
@@ -235,7 +235,7 @@ Con esto logramos tipificar una entidad e interfaz para poder tipificar en los d
 
 ## Wiki
 
-Para más información podes consultar la [Wiki]() realizada en Confluence.
+Para más información podes consultar la [Wiki]().
 
 ## Referencias
 

@@ -1,36 +1,20 @@
-import http from 'http';
-import express from 'express';
-import 'express-async-errors';
-import { applyMiddleware, applyRoutes, logger } from './utils';
-import middleware from './middlewares';
-import errorHandlers from './middlewares/errorHandlers';
-import routes from './components';
-import 'reflect-metadata';
-import { createConnection } from 'typeorm';
+import {logger } from './utils';
+import { connectDb } from './config/db';
+import { startServer } from './config/express';
+import { LogEntry } from 'winston';
 
-// createConnection method will automatically read connection options
-// from your ormconfig file or environment variables
-createConnection().then(() => {
-  process.on('uncaughtException', (e) => {
+process.on('uncaughtException', (e) => {
     logger.error(e);
-    // errorManagement.handler.handleError(error);
-    // if (!errorManagement.handler.isTrustedError(error))
     process.exit(1);
   });
 
   process.on('unhandledRejection', (e) => {
-    console.error(e);
-    // logger.log(e);
+    logger.log(e as LogEntry);
     process.exit(1);
   });
 
-  const app = express();
-  applyMiddleware(middleware, app);
-  applyRoutes(routes, app);
-  applyMiddleware(errorHandlers, app);
-
-  const { HTTP_PORT = 8080 } = process.env;
-  const server = http.createServer(app);
-
-  server.listen(HTTP_PORT, () => logger.info(`Server is running ${HTTP_PORT}`));
-});
+  (async (): Promise<void> => {
+    const {HTTP_PORT = 8080 } = process.env;
+    startServer(HTTP_PORT as number);
+    await connectDb();
+  })

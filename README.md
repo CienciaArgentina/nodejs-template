@@ -224,14 +224,12 @@ Con esto logramos tipificar una entidad e interfaz para poder tipificar en los d
 
 ## Pendientes
 
-- Separar server
 - Optimizar memoria
 - Optimizar seguridad
-- Logueo de correlation-Id en todo el contexto de la aplicación
 - Optimizar docker
-- Subir dependencias comunes a Nexus
-- Autorización por endpoints
+- Subir dependencias comunes a otro repo
 - Coverage 80%
+- Migrar de TypeOrm a ObjectionJs
 
 ## Wiki
 

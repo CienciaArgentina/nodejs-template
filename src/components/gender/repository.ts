@@ -1,7 +1,6 @@
-import { getRepository } from 'typeorm';
-import { Gender, GenderEntity } from '../../entities/Gender';
+import Gender from '../../models/Gender';
 
 export const findGenderById = async (id: string): Promise<Gender | undefined> => {
-  const genderRepository = getRepository<Gender>(GenderEntity);
-  return await genderRepository.findOne(id, { cache: true });
+  const gender = await Gender.query().findById(id);
+  return gender;
 };

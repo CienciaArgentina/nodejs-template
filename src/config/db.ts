@@ -1,11 +1,9 @@
-import 'reflect-metadata';
-import { createConnection, getConnectionOptions } from 'typeorm';
-import { LoggerTypeOrm } from '../utils/';
+import Knex from 'knex';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const knexConfig = require('../../knexfile');
+import { Model, ForeignKeyViolationError, ValidationError } from 'objection';
 
-//TODO: Es incorrecto crear una instancia con el new y no inyectarla. Buscar alternativa
-export const connectDb = async (): Promise<void> => {
-  const connectionOptions = await getConnectionOptions();
-  const maxQueryTime: number = +(process.env.DB_QUERY_TIME || '1000');
-  const mergedOptions = { ...connectionOptions, logger: new LoggerTypeOrm(), maxQueryExecutionTime: maxQueryTime };
-  await createConnection(mergedOptions);
+export const connectDb = (): void => {
+  const knex = Knex(knexConfig.cienciaArgDb);
+  Model.knex(knex);
 };

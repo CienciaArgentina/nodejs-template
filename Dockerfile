@@ -1,4 +1,4 @@
-FROM node:12.13.0 AS builder
+FROM node:lts AS builder
 
 WORKDIR /usr/src/app
 
@@ -9,12 +9,7 @@ COPY ./src ./src
 RUN npm install
 RUN npm run build
 
-#
-# Production stage.
-# This state compile get back the JavaScript code from builder stage
-# It will also install the production package only
-#
-FROM node:12.13.0-alpine
+FROM node:lts-alpine
 
 WORKDIR /app
 ENV NODE_ENV=production
@@ -22,8 +17,7 @@ ENV NODE_ENV=production
 COPY package*.json ./
 COPY knexfile.js ./
 
-RUN npm install -g pm2
-RUN npm install -- production
+RUN npm install --production
 
 EXPOSE $APP_PORT
 

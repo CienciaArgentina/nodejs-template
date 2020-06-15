@@ -167,36 +167,25 @@ Entre los problemas que resuelve se destacan:
 
 ### Database
 
-En nuestro caso la aplicación precisa conectarse a una base de datos Oracle 12c. Para esto se decidió usar un ORM llamado [TypeORM](https://typeorm.io/#/).
+Se decidió usar un ORM llamado [ObjectionJs](https://vincit.github.io/objection.js/).
 
-#### TypeORM
+#### ObjectionJs
 
-La decisión de TypeORM fueron por las siguientes razones:
+La decisión de Objection fueron por las siguientes razones:
 
 - Es un ORM con **constante apoyo y soporte por la comunidad**
 - **Soporta Typescript**
-- **Soporta** bases de datos como **Oracle**, MySql, Postgres, entre otras
-- Admite DataMapper
-- Permite personalizar repossitories
+- Basado en Knex
 - Soporta migraciones
-- Cross-database and cross-schema queries (necesario para el primer release)
-- Cache en consultas
+- Cross-database and cross-schema queries
 - Logging
 - Hooks
 
 entre otras caracteristicas.
 
-Una de las medidas que adoptamos a la hora de implementar el ORM es **[separar la definición de la entidad](https://typeorm.io/#/separating-entity-definition)**.
-Con esto logramos tipificar una entidad e interfaz para poder tipificar en los diferentes lugares del código que se utilice la misma sin utilizar una clase abstracta.
+> El mayor poder es el rendimiento, realizamos un benchmark contra TypeOrm y nos dio que Objection es un 50% (Mínimo) más eficiente. 
+> [Link](https://github.com/emilioforrer/adonis-api-orm-benchmark-app) para benchmark detallado.
 
-> Pero no es todo color de rosas, si bien el ORM tiene mucho soporte de la comunidad a una de las DB que menos "bola" le dan es Oracle.  
-> Por lo tanto encontramos ciertas restricciones:
->
-> - Cuando mapeamos una tabla los nombres de las columnas **deben estar en mayuscula**
-> - Si no separamos la entidad y decidimos usar _@decorators_ hay que **especificar el esquema** en el que se encuentra la tabla
-> - Los nombres de las tablas **siempre deben estar en mayusculas**
->
-> Si bien sabemos que son cosas que pueden molestar decidimos utilizar el ORM igual porque nos brinda muchas ventajas, mencionadas anteriormente, frente al driver directo de Oracle u otros ORM.
 
 ### Seguridad
 
@@ -241,7 +230,7 @@ Para más información podes consultar la [Wiki]().
 
 - [Node.JS Best Practices](https://github.com/goldbergyoni/nodebestpractices) - Mejores practicas de la comunidad en NODE.js
 - [Typescript](https://www.typescriptlang.org/) - Mecanografíado para tipar Javascript utilizado en el proyecot
-- [TypeORM](https://typeorm.io/) - ORM
+- [Objection](https://vincit.github.io/objection.js/) - ORM
 - [Jest](https://jestjs.io/) - Framework utilizado para test
 - [PM2-RUNTIME](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/) - Herramienta utilizada para manejar los procesos en producción
 

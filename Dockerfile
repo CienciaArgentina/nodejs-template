@@ -18,7 +18,6 @@ COPY package*.json ./
 COPY knexfile.js ./
 
 RUN npm install --production
-
 EXPOSE $APP_PORT
 
 COPY --from=builder /usr/src/app/dist ./dist

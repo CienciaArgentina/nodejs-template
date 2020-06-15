@@ -8,7 +8,7 @@
     "test:dev": "jest --collectCoverage",
     "test": "jest",
     "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i",
-    "start": "pm2-runtime start ./dist/server.js",
+    "start": "node ./dist/server.js",
     "lint": "eslint --fix --ext .ts ."
   },
   "keywords": [],
@@ -39,7 +39,6 @@
     "knex": "^0.21.1",
     "mysql": "^2.18.1",
     "objection": "^2.2.0",
-    "pm2": "^4.2.3",
     "uuid": "^7.0.3",
     "winston": "^3.2.1"
   },

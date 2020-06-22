@@ -1,6 +1,6 @@
-import { logger } from '@cienciaargentina/nodejs-backend-commons';
+import { logger,startServer } from '@cienciaargentina/nodejs-backend-commons';
+import routes from './components';
 import { connectDb } from './config/db';
-import { startServer } from './config/express';
 import { LogEntry } from 'winston';
 
 process.on('uncaughtException', (e) => {
@@ -12,5 +12,5 @@ process.on('unhandledRejection', (e) => {
   process.exit(1);
 });
 
-startServer(+(process.env.HTTP_PORT || 8080));
+startServer(+(process.env.HTTP_PORT || 8080),routes);
 connectDb();

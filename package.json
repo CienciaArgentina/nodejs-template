@@ -31,7 +31,7 @@
     "clearMocks": true
   },
   "dependencies": {
-    "@cienciaargentina/nodejs-backend-commons": "^1.2.1",
+    "@cienciaargentina/nodejs-backend-commons": "^1.2.2",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

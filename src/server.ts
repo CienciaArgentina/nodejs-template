@@ -1,16 +1,16 @@
-import { logger,startServer } from '@cienciaargentina/nodejs-backend-commons';
+import { logger,startServer,connectDb } from '@cienciaargentina/nodejs-backend-commons';
 import routes from './components';
-import { connectDb } from './config/db';
 import { LogEntry } from 'winston';
+const knexConfig = require('../knexfile');
 
 process.on('uncaughtException', (e) => {
   logger.error(e);
   process.exit(1);
 });
 process.on('unhandledRejection', (e) => {
-  logger.log(e as LogEntry);
+  console.log(e); //TODO
   process.exit(1);
 });
 
 startServer(+(process.env.HTTP_PORT || 8080),routes);
-connectDb();
+connectDb(knexConfig.cienciaArgDb);

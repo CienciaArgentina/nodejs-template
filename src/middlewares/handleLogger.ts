@@ -1,4 +1,4 @@
-import { configLoggerRequestResponse } from '../utils';
+import { configLoggerRequestResponse } from '@cienciaargentina/nodejs-backend-commons';
 import { Router } from 'express';
 import expressWinston from 'express-winston';
 

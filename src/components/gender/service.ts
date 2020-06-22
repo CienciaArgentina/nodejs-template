@@ -1,5 +1,5 @@
 import { isNullOrUndefined } from 'util';
-import { HTTP400Error, HTTP401Error, HTTP404Error } from '../../utils/error/HTTP400Error';
+import { HTTP404Error } from '@cienciaargentina/nodejs-backend-commons';
 import { findGenderById } from './repository';
 import Gender from '../../models/Gender';
 

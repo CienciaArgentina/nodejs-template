@@ -1,4 +1,4 @@
-import { logger } from './utils';
+import { logger } from '@cienciaargentina/nodejs-backend-commons';
 import { connectDb } from './config/db';
 import { startServer } from './config/express';
 import { LogEntry } from 'winston';

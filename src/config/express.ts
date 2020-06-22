@@ -1,7 +1,7 @@
 import http from 'http';
 import express from 'express';
 import 'express-async-errors';
-import { applyMiddleware, applyRoutes, logger } from '../utils';
+import { applyMiddleware, applyRoutes, logger } from '@cienciaargentina/nodejs-backend-commons';
 import middlewares from '../middlewares';
 import errorHandlers from '../middlewares/errorHandlers';
 import routes from '../components';
@@ -9,6 +9,7 @@ import routes from '../components';
 const app = express();
 
 export const startServer = (port: number): void => {
+
   applyMiddleware(middlewares, app);
   applyRoutes(routes, app);
   applyMiddleware(errorHandlers, app);

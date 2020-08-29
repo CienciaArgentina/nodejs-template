@@ -1,7 +1,7 @@
 import { HealthIndicator } from '../HealthIndicator';
 import { ResourceHealth } from '../ResourceHealth';
 // import { getConnection } from 'typeorm';
-import { logger } from '@cienciaargentina/nodejs-backend-commons';
+import { logger } from 'ciencia-argentina-backend-commons';
 
 export class CienciaArgentinaConnectionCheck extends HealthIndicator {
   name = 'CienciaArgentina connection';
